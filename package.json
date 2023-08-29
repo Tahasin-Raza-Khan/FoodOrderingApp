@@ -1,0 +1,29 @@
+{
+  "name": "react-ts",
+  "version": "1.0.0",
+  "description": "trk",
+  "scripts": {
+    "test": "jest",
+    "build": "parcel build index.html",
+    "start": "parcel index.html"
+  },
+  "author": "tash",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@types/react": "^18.2.20",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.5",
+    "@mui/system": "^5.14.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
+  }
+}

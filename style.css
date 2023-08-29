@@ -1,0 +1,85 @@
+
+.header {
+    display: flex; 
+    justify-content: space-between;
+    border:1px solid black;
+    background-color: #F9F9F9;
+    margin: 10px;
+}
+
+.nav-items>ul {
+  list-style: none;
+  display: flex;
+}
+.nav-items>ul>li {
+    padding:10px;
+}
+
+.food-villa>a>img {
+    width: 66%;
+}
+
+.card {
+    border:1px solid black;
+    width: 203px;
+    padding: 10px;
+    margin: 10px;
+    background-color:#FBA1B7;
+    height:32rem;
+    box-shadow:  0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+
+.restro-card-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cuisines{
+    margin:10em 0 em
+}
+.serach-bar-container{
+    margin:10px
+}
+
+.header-button{
+  color:#040D12
+}
+
+.restro-name {
+  text-align: center;
+  color: #1B1A17;
+  font-family: cursive;
+}
+
+.AppLayout {
+  background-color:#116D6E;
+  padding: 1rem;
+}
+.shimmer-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer {
+   color: red; 
+   text-align: center
+  }
+
+
+  
+  .restro-menu>img {
+    width: 30%;
+    margin-right: 5%;
+    margin-left: 10px;
+  }
+
+  .menudiv{
+    display: inline;
+    width: 100px;
+  }
+
+  .menu-image{
+    width:20em;
+    
+  }
+
+  
