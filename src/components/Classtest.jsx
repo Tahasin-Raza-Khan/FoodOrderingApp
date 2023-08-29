@@ -5,7 +5,7 @@ class Classtest extends Component {
      return <>
       <h1>This is from class based Component</h1>
       <div>
-        <Officelocations city={"Kandra"} country="india" age="452"/>
+        <Officelocations city={"Dhanbad"} country="india" age="452"/>
       </div>
      </>
   }
