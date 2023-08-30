@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { restroImageLink } from "../config";
+import { restroImageLink } from "../utils/config";
 
 const RestroMenu = () => {
   const { resId } = useParams();
@@ -15,7 +15,7 @@ const RestroMenu = () => {
     );
 
     const json = await data.json();
-    console.log("test",json?.data);
+    console.log("test", json?.data);
     setRestroDetail(json?.data);
   }
 

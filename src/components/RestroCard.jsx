@@ -1,5 +1,12 @@
-import { restroImageLink } from "../config";
-const RestroCard = ({ cloudinaryImageId, name, avgRating, cuisines,locality,areaName }) => {
+import { restroImageLink } from "../utils/config";
+const RestroCard = ({
+  cloudinaryImageId,
+  name,
+  avgRating,
+  cuisines,
+  locality,
+  areaName,
+}) => {
   return (
     <div className="card">
       <img
@@ -15,7 +22,9 @@ const RestroCard = ({ cloudinaryImageId, name, avgRating, cuisines,locality,area
       <div className="cuisines">
         <h4>{cuisines.join(", ")}</h4>
       </div>
-      <h4>Location -{locality}, {areaName}</h4>
+      <h4>
+        Location -{locality}, {areaName}
+      </h4>
     </div>
   );
 };

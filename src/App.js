@@ -14,7 +14,7 @@ import Test from "./components/Test";
 const AppLayout = () => {
   return (
     <div className="AppLayout">
-      <Header />
+     <Header/>
       <Outlet />
       <Footer />
     </div>

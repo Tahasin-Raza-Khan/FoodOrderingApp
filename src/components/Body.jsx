@@ -2,8 +2,8 @@ import RestroCard from "./RestroCard";
 import { useState, useEffect } from "react";
 import { filterRestro } from "./helper";
 import Shimmer from "./Shimmer";
-import { apiDataLink } from "../config";
-import {Link} from "react-router-dom"
+import { apiDataLink } from "../utils/config";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -13,7 +13,6 @@ const Body = () => {
   useEffect(() => {
     fetchRestuarantsList();
   }, []);
-
 
   async function fetchRestuarantsList() {
     const data = await fetch(apiDataLink);
@@ -55,8 +54,12 @@ const Body = () => {
         ) : (
           restroLists?.map((restroinfo) => {
             return (
-              <Link to={"/restro/" + restroinfo?.info?.id} key={restroinfo?.info?.id} style={{ textDecoration: 'none', color: '#000' }}>
-                 <RestroCard {...restroinfo.info} />
+              <Link
+                to={"/restro/" + restroinfo?.info?.id}
+                key={restroinfo?.info?.id}
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                <RestroCard {...restroinfo.info} />
               </Link>
             );
           })

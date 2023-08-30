@@ -22,6 +22,7 @@ export const Title = () => (
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  console.log("header rendering");
   return (
     <>
       <div className="header">
@@ -49,7 +50,7 @@ export const Header = () => {
               <Tooltip title="Contact Us" arrow>
                 <Link className="header-button" to="/contact">
                   <ContactMailIcon />
-                </Link> 
+                </Link>
               </Tooltip>
             </li>
             <li>
