@@ -54,7 +54,7 @@ export const Header = () => {
             </li>
             <li>
               <Tooltip title="Add to Cart" arrow>
-                <Link className="header-button" to="/add-item">
+                <Link className="header-button" to="/cart">
                   <ShoppingCartIcon />
                 </Link>
               </Tooltip>

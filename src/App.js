@@ -10,6 +10,10 @@ import Contact from "./components/Contact";
 import RestroMenu from "./components/RestroMenu";
 import Classtest from "./components/Classtest";
 import Test from "./components/Test";
+import Shimmer from "./components/Shimmer";
+// import Cart from "./components/Cart";
+
+const Cart= React.lazy(()=>import("./components/Cart"))
 
 const AppLayout = () => {
   return (
@@ -38,6 +42,14 @@ const appRoutes = createBrowserRouter([
       {
         path:"/test",
         element: <Test />,
+      },
+      {
+        path:"/cart",
+        element:(
+          <React.Suspense fallback={<Shimmer/>}>
+          <Cart />
+        </React.Suspense>
+        ),
       },
       {
         path: "/contact",

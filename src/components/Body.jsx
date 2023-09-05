@@ -20,10 +20,10 @@ const Body = () => {
     const data = await fetch(apiDataLink);
     const json = await data.json();
     filterRestroList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFixRestroList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
   
