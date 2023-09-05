@@ -3,3 +3,4 @@ export const filterRestro = (searchText, restroLists) => {
     restuarant?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 };
+

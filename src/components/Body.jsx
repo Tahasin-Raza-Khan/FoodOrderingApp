@@ -1,15 +1,17 @@
 import RestroCard from "./RestroCard";
 import { useState, useEffect } from "react";
-import { filterRestro } from "./helper";
+import { filterRestro } from "../utils/helper";
 import Shimmer from "./Shimmer";
 import { apiDataLink } from "../utils/config";
 import { Link } from "react-router-dom";
+import useOnline from "../hooks/useOnline";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [restroLists, filterRestroList] = useState([]);
   const [fixRestroList, setFixRestroList] = useState([]);
 
+ 
   useEffect(() => {
     fetchRestuarantsList();
   }, []);
@@ -18,13 +20,17 @@ const Body = () => {
     const data = await fetch(apiDataLink);
     const json = await data.json();
     filterRestroList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFixRestroList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-
+  
+  const isOnline = useOnline();
+  if(!isOnline) {
+   return <h1>No Internet Connection 🔴</h1>
+  }
   return !fixRestroList?.length ? (
     <Shimmer />
   ) : (

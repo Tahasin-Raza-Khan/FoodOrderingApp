@@ -12,7 +12,6 @@ import { Component } from "react";
 class About extends Component {
   constructor(props) {
     super(props);
-    console.log("from constructor");
     this.state = {
       info: {
         name: "Dummy Name",
@@ -22,23 +21,18 @@ class About extends Component {
     };
   }
   async componentDidMount() {
-    console.log("from component did mount");
     const data = await fetch("https://api.github.com/users/Tahasin-Raza-Khan");
     const json = await data.json();
-    console.log("api data", json);
     this.setState({
       info: json,
     });
   }
   componentDidUpdate() {
-    console.log("called after first rendering when the state changed");
   }
   componentWillUnmount() {
-    console.log("About us conponent detroyed..");
   }
   render() {
     const { avatar_url, name } = this.state.info;
-    console.log("Rendering the component");
     return (
       <>
         <div className="about">
