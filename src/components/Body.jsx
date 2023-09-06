@@ -11,7 +11,6 @@ const Body = () => {
   const [restroLists, filterRestroList] = useState([]);
   const [fixRestroList, setFixRestroList] = useState([]);
 
- 
   useEffect(() => {
     fetchRestuarantsList();
   }, []);
@@ -26,19 +25,19 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-  
+
   const isOnline = useOnline();
-  if(!isOnline) {
-   return <h1>No Internet Connection 🔴</h1>
+  if (!isOnline) {
+    return <h1>No Internet Connection 🔴</h1>;
   }
   return !fixRestroList?.length ? (
     <Shimmer />
   ) : (
     <>
-      <div className="serach-bar-container">
+      <div className="bg-[#016A70] ">
         <input
           type="text"
-          className="serach-bar"
+          className="px-3 m-2"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -47,6 +46,7 @@ const Body = () => {
         />
         <button
           type="button"
+          className="px-4 hover:bg-green-700 rounded-md bg-green-300"
           onClick={() => {
             filterRestroList(filterRestro(searchText, fixRestroList));
           }}
@@ -54,7 +54,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restro-card-list">
+      <div className="flex flex-wrap bg-[#016A70]">
         {!restroLists?.length && searchText ? (
           <h1 style={{ color: "red" }}>No result found</h1>
         ) : (

@@ -12,11 +12,9 @@ import { Link } from "react-router-dom";
 
 export const Title = () => (
   <>
-    
-      <Link to="/">
-        <img className="h-20"  src={logo} alt="logo image" />
-      </Link>
-    
+    <Link to="/">
+      <img className="h-28 py-1 px-3" src={logo} alt="logo image" />
+    </Link>
   </>
 );
 
@@ -24,42 +22,42 @@ export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
     <>
-      <div className="flex">
+      <div className="flex justify-between bg-rose-50 shadow-md">
         <Title />
         <div className="restro-name">
-          <h2 className="text-red-900 text-xl">Food Villa</h2>
+          <h2 className="text-rose-700 text-3xl py-11 font-bold">DaaWat</h2>
         </div>
-        <div className="nav-items">
-          <ul>
-            <li>
+        
+          <ul className="flex py-11">
+            <li className="px-2">
               <Tooltip title="Home" arrow>
                 <Link className="header-button" to="/">
                   <HomeIcon />
                 </Link>
               </Tooltip>
             </li>
-            <li>
+            <li className="px-2">
               <Tooltip title="About Us" arrow>
                 <Link className="header-button" to="/about">
                   <InfoIcon />
                 </Link>
               </Tooltip>
             </li>
-            <li>
+            <li className="px-2">
               <Tooltip title="Contact Us" arrow>
                 <Link className="header-button" to="/contact">
                   <ContactMailIcon />
                 </Link>
               </Tooltip>
             </li>
-            <li>
+            <li className="px-2">
               <Tooltip title="Add to Cart" arrow>
                 <Link className="header-button" to="/cart">
                   <ShoppingCartIcon />
                 </Link>
               </Tooltip>
             </li>
-            <li>
+            <li className="px-2">
               {isLoggedIn ? (
                 <Tooltip title="Profile" arrow>
                   <AccountCircleSharpIcon
@@ -81,7 +79,7 @@ export const Header = () => {
               )}
             </li>
           </ul>
-        </div>
+        
       </div>
     </>
   );

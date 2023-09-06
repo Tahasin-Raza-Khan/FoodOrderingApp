@@ -8,7 +8,7 @@ const RestroCard = ({
   areaName,
 }) => {
   return (
-    <div className="card">
+    <div className="w-[203px] p-[10px] m-[7px] bg-[#FBA1B7] h-[30rem] shadow-xl">
       <img
         src={restroImageLink + cloudinaryImageId}
         alt="restro image"
@@ -17,7 +17,7 @@ const RestroCard = ({
           height: "50%",
         }}
       />
-      <h2>{name}</h2>
+      <h2 className="text-xl font-bold">{name}</h2>
       <h3>⭐ {avgRating}</h3>
       <div className="cuisines">
         <h4>{cuisines.join(", ")}</h4>
