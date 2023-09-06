@@ -12,11 +12,11 @@ import { Link } from "react-router-dom";
 
 export const Title = () => (
   <>
-    <div className="food-villa">
+    
       <Link to="/">
-        <img src={logo} alt="logo image" />
+        <img className="h-20"  src={logo} alt="logo image" />
       </Link>
-    </div>
+    
   </>
 );
 
@@ -24,10 +24,10 @@ export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
     <>
-      <div className="header">
+      <div className="flex">
         <Title />
         <div className="restro-name">
-          <h2>Food Villa</h2>
+          <h2 className="text-red-900 text-xl">Food Villa</h2>
         </div>
         <div className="nav-items">
           <ul>
