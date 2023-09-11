@@ -1,5 +1,5 @@
 //Title
-import { useState } from "react";
+import { useState,useContext } from "react";
 import logo from "../images/food_villa.jpg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
@@ -9,6 +9,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
+import userContext from "../utils/store/context/usercontext";
 
 export const Title = () => (
   <>
@@ -20,6 +21,7 @@ export const Title = () => (
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const {user}= useContext(userContext);
   return (
     <>
       <div className="flex justify-between bg-rose-50 shadow-md">
@@ -56,6 +58,9 @@ export const Header = () => {
                   <ShoppingCartIcon />
                 </Link>
               </Tooltip>
+            </li>
+            <li className="px-2">
+            <h3 className="text-rose-700 font-bold">{isLoggedIn ?user.name: "Login"}</h3>
             </li>
             <li className="px-2">
               {isLoggedIn ? (

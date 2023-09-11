@@ -12,16 +12,28 @@ import Classtest from "./components/Classtest";
 import Test from "./components/Test";
 import Shimmer from "./components/Shimmer";
 // import Cart from "./components/Cart";
+import userContext from "./utils/store/context/usercontext";
 
-const Cart= React.lazy(()=>import("./components/Cart"))
+const Cart = React.lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = React.useState({
+    name: "Sazz Khan",
+    email: "tkhanballia@gmail.com",
+    loggedInLocation: "Jamshedpur",
+  });
   return (
-    <div className="AppLayout">
-     <Header/>
-      <Outlet />
-      <Footer />
-    </div>
+    <React.Fragment>
+      <userContext.Provider
+        value={{
+          user: userName,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </userContext.Provider>
+    </React.Fragment>
   );
 };
 
@@ -40,15 +52,15 @@ const appRoutes = createBrowserRouter([
         element: <About />,
       },
       {
-        path:"/test",
+        path: "/test",
         element: <Test />,
       },
       {
-        path:"/cart",
-        element:(
-          <React.Suspense fallback={<Shimmer/>}>
-          <Cart />
-        </React.Suspense>
+        path: "/cart",
+        element: (
+          <React.Suspense fallback={<Shimmer />}>
+            <Cart />
+          </React.Suspense>
         ),
       },
       {
