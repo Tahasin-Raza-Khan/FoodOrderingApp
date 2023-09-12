@@ -10,6 +10,8 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import userContext from "../utils/store/context/usercontext";
+import Badge from '@mui/material/Badge';
+import { useSelector } from "react-redux";
 
 export const Title = () => (
   <>
@@ -22,6 +24,8 @@ export const Title = () => (
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const {user}= useContext(userContext);
+  const itemAdded = useSelector((store)=>store.cart.items)
+  console.log("itemAdded", itemAdded)
   return (
     <>
       <div className="flex justify-between bg-rose-50 shadow-md">
@@ -55,7 +59,9 @@ export const Header = () => {
             <li className="px-2">
               <Tooltip title="Add to Cart" arrow>
                 <Link className="header-button" to="/cart">
+                  <Badge badgeContent={itemAdded.length} color="success">
                   <ShoppingCartIcon />
+                  </Badge>
                 </Link>
               </Tooltip>
             </li>

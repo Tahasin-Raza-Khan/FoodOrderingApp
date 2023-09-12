@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { Header } from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
@@ -11,19 +10,21 @@ import RestroMenu from "./components/RestroMenu";
 import Classtest from "./components/Classtest";
 import Test from "./components/Test";
 import Shimmer from "./components/Shimmer";
-// import Cart from "./components/Cart";
+ import Cart from "./components/Cart";
 import userContext from "./utils/store/context/usercontext";
+import {Provider} from "react-redux"
+import store from "../src/utils/store/context/store"
 
-const Cart = React.lazy(() => import("./components/Cart"));
+const About = React.lazy(() => import("./components/About"));
 
 const AppLayout = () => {
   const [userName, setUserName] = React.useState({
-    name: "Sazz Khan",
+    name: "Tahasin Khan",
     email: "tkhanballia@gmail.com",
     loggedInLocation: "Jamshedpur",
   });
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <userContext.Provider
         value={{
           user: userName,
@@ -33,7 +34,7 @@ const AppLayout = () => {
         <Outlet />
         <Footer />
       </userContext.Provider>
-    </React.Fragment>
+    </Provider>
   );
 };
 
@@ -49,7 +50,11 @@ const appRoutes = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <React.Suspense fallback={<Shimmer />}>
+            <About />
+          </React.Suspense>
+        ),
       },
       {
         path: "/test",
@@ -57,11 +62,7 @@ const appRoutes = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: (
-          <React.Suspense fallback={<Shimmer />}>
-            <Cart />
-          </React.Suspense>
-        ),
+        element: <Cart />,
       },
       {
         path: "/contact",

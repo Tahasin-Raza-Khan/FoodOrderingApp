@@ -2,10 +2,16 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { restroImageLink } from "../utils/config";
 import useRestro from "../hooks/useRestro";
+import { useDispatch } from "react-redux";
+import {addItem} from '../utils/slice/cartSlice'
 
 const RestroMenu = () => {
   const { resId } = useParams();
   const restroDetails = useRestro(resId);
+  const dispatch= useDispatch();
+  const handleAddItem= (foodName)=>{
+      dispatch(addItem(foodName))
+  }
   if (!restroDetails) return <Shimmer />;
 
   const { name, id, cloudinaryImageId, costForTwoMessage, cuisines } =
@@ -39,6 +45,11 @@ const RestroMenu = () => {
                       className="menu-image"
                       alt=""
                     />
+                  </td>
+                  <td>
+                    <button className="p-2 m-5 bg-green-400"onClick={()=> handleAddItem(menuDeatils?.card?.info)}>
+                      Add+
+                    </button>
                   </td>
                 </tr>
               );
