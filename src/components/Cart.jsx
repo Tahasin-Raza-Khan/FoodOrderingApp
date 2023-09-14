@@ -2,11 +2,16 @@ import { useSelector } from "react-redux";
 import FoodItems from "./FoodItems";
 const Cart=()=>{
 
-  const cartItems =useSelector((store)=>store.cart.items)
+  const cartItems =useSelector((store)=>store.cart.items);
+  console.log(cartItems);
     return (
-      <div>
+      <div className="flex">
         <h1 className="font-bold text-3xl">Cart Items- {cartItems.length}</h1>
-        <FoodItems {...cartItems[0]}/>
+        {
+          cartItems?.map((item)=>(
+            <FoodItems {...item} key={item.id}/>
+          ))
+        }
       </div>
     )
 

@@ -3,15 +3,16 @@ import Shimmer from "./Shimmer";
 import { restroImageLink } from "../utils/config";
 import useRestro from "../hooks/useRestro";
 import { useDispatch } from "react-redux";
-import {addItem} from '../utils/slice/cartSlice'
+import { addItem } from "../utils/slice/cartSlice";
+import MenuAccordian from "./MenuAccordian";
 
 const RestroMenu = () => {
   const { resId } = useParams();
   const restroDetails = useRestro(resId);
-  const dispatch= useDispatch();
-  const handleAddItem= (foodName)=>{
-      dispatch(addItem(foodName))
-  }
+  const dispatch = useDispatch();
+  const handleAddItem = (foodName) => {
+    dispatch(addItem(foodName));
+  };
   if (!restroDetails) return <Shimmer />;
 
   const { name, id, cloudinaryImageId, costForTwoMessage, cuisines } =
@@ -20,11 +21,18 @@ const RestroMenu = () => {
   const { itemCards } =
     restroDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
-
+ 
+  const menuCategory =
+    restroDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (card) =>
+        card?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+    console.log(menuCategory);
   return (
-    <div>
-      <div>
-        <h1 style={{ textAlign: "center" }}>Welcome to the Restro : {name}</h1>
+    <div className="text-center">
+      {/* <div>
+        <h1 style={{ textAlign: "center" }} className="text-2xl">Welcome to the Restro : {name}</h1>
         <h3>{cuisines?.join(", ")}</h3>
         <h2>{costForTwoMessage}</h2>
         <h3>The Restro Menu </h3>
@@ -47,7 +55,10 @@ const RestroMenu = () => {
                     />
                   </td>
                   <td>
-                    <button className="p-2 m-5 bg-green-400"onClick={()=> handleAddItem(menuDeatils?.card?.info)}>
+                    <button
+                      className="p-2 m-5 bg-green-400"
+                      onClick={() => handleAddItem(menuDeatils?.card?.info)}
+                    >
                       Add+
                     </button>
                   </td>
@@ -56,7 +67,15 @@ const RestroMenu = () => {
             })}
           </tbody>
         </table>
-      </div>
+      </div> */}
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lg">{costForTwoMessage}- Cost for Two </p>
+      {
+        menuCategory?.map((menuCategory)=>(
+          
+          <MenuAccordian data={menuCategory?.card?.card} key={menuCategory?.card?.card?.title}/>
+        ))
+      }
     </div>
   );
 };

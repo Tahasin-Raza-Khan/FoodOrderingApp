@@ -20,7 +20,7 @@ const RestroCard = ({
       <h2 className="text-xl font-bold">{name}</h2>
       <h3>⭐ {avgRating}</h3>
       <div className="cuisines">
-        <h4>{cuisines.join(", ")}</h4>
+        <h4>{cuisines?.join(", ")}</h4>
       </div>
       <h4>
         Location -{locality}, {areaName}
@@ -28,4 +28,17 @@ const RestroCard = ({
     </div>
   );
 };
+
+
+
+export const isOpen=(RestroCard)=>{
+  return (props)=>{
+    return (
+      <div className="absolute bg-black text-white m-2 p-2 rounded-lg">
+      <label >Serving Now</label>
+      <RestroCard {...props}/>
+      </div>
+    )
+  }
+}
 export default RestroCard;

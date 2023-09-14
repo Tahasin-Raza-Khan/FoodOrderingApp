@@ -1,4 +1,4 @@
-import RestroCard from "./RestroCard";
+import RestroCard,{isOpen} from "./RestroCard";
 import { useState, useEffect } from "react";
 import { filterRestro } from "../utils/helper";
 import Shimmer from "./Shimmer";
@@ -19,13 +19,12 @@ const Body = () => {
     const data = await fetch(apiDataLink);
     const json = await data.json();
     filterRestroList(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFixRestroList(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-
   const isOnline = useOnline();
   if (!isOnline) {
     return <h1>No Internet Connection 🔴</h1>;

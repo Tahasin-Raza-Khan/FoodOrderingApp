@@ -30,9 +30,9 @@ export const Header = () => {
     <>
       <div className="flex justify-between bg-rose-50 shadow-md">
         <Title />
-        <div className="restro-name">
-          <h2 className="text-rose-700 text-3xl py-11 font-bold">Food Villa</h2>
-        </div>
+        {/* <div className="restro-name">
+          <h2 className="text-rose-700 text-3xl py-11 font-bold ">Food Villa</h2>
+        </div> */}
         
           <ul className="flex py-11">
             <li className="px-2">
