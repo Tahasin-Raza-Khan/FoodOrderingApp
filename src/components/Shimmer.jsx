@@ -6,7 +6,7 @@ export const Shimmer = () => {
           return (
             <div
               key={i}
-              className="w-[203px] p-[10px] m-[7px] bg-[#928b8d] h-[30rem] shadow-xl"
+              className="w-[203px] p-[10px] m-[7px] bg-[#928b8d] h-[30rem] shadow-xl rounded-md"
             >
               {" "}
             </div>

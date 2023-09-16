@@ -8,7 +8,7 @@ const RestroCard = ({
   areaName,
 }) => {
   return (
-    <div className="w-[203px] p-[10px] m-[7px] bg-[#FBA1B7] h-[30rem] shadow-xl">
+    <div className="w-[203px] p-[10px] m-[7px] bg-rose-50 rounded-md h-[30rem] shadow-xl">
       <img
         src={restroImageLink + cloudinaryImageId}
         alt="restro image"
