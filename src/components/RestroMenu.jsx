@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/slice/cartSlice";
 import MenuAccordian from "./MenuAccordian";
 
-
 const RestroMenu = () => {
   const { resId } = useParams();
   const restroDetails = useRestro(resId);
@@ -15,7 +14,7 @@ const RestroMenu = () => {
   const handleAddItem = (foodName) => {
     dispatch(addItem(foodName));
   };
-  const [showIndex,setShowIndex] = useState(0);
+  const [showIndex, setShowIndex] = useState(0);
   if (!restroDetails) return <Shimmer />;
 
   const { name, id, cloudinaryImageId, costForTwoMessage, cuisines } =
@@ -31,7 +30,7 @@ const RestroMenu = () => {
         card?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log("parent renderig")
+  console.log("parent renderig");
   return (
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl text-rose-700">{name}</h1>
@@ -42,8 +41,10 @@ const RestroMenu = () => {
         <MenuAccordian
           data={menuCategory?.card?.card}
           key={menuCategory?.card?.card?.title}
-          isOpen={showIndex===index ? true:false}
-          setIndex={()=>{setShowIndex(index)}}
+          isOpen={showIndex === index ? true : false}
+          setIndex={() => {
+            setShowIndex(index);
+          }}
         />
       ))}
     </div>
