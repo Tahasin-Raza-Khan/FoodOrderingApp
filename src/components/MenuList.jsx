@@ -43,7 +43,7 @@ const MenuList = ({ menuData }) => {
             <img
               className="h-24 rounded-md "
               src={restroImageLink + item?.card?.info?.imageId}
-              alt="food img"
+              alt="food-img"
             />
           </div>
         </div>
