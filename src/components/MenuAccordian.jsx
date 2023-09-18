@@ -7,11 +7,8 @@ const MenuAccordian = ({ data, isOpen, setIndex }) => {
 
   const handleClick = () => {
     setIndex();
-
     isOpen && isCollapse ? setCollapse(false) : setCollapse(true);
   };
-
-  console.log(isCollapse, isOpen);
   return (
     <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-xl p-4  ">
       <div

@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useState,useEffect} from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./components/Header";
 import Body from "./components/Body";
@@ -18,17 +19,18 @@ import store from "../src/utils/store/context/store"
 const About = React.lazy(() => import("./components/About"));
 
 const AppLayout = () => {
-  const [userName, setUserName] = React.useState({
-    name: "Tahasin Khan",
-    email: "tkhanballia@gmail.com",
-    loggedInLocation: "Jamshedpur",
-  });
+const [userInfo,setUserInfo] =useState(null);
+useEffect(()=>{
+  const userData={
+    name:"Tahasin Khan",
+    email:"tkhan@neudesic.com"
+  }
+  setUserInfo(userData);
+},[])
   return (
     <Provider store={store}>
       <userContext.Provider
-        value={{
-          user: userName,
-        }}
+        value={{user:userInfo}}
       >
         <Header />
         <Outlet />

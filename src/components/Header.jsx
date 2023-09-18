@@ -24,6 +24,7 @@ export const Title = () => (
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const {user}= useContext(userContext);
+
   const itemAdded = useSelector((store)=>store.cart.items)
   return (
     <>
@@ -61,7 +62,7 @@ export const Header = () => {
               </Tooltip>
             </li>
             <li className="px-2">
-            <h3 className="text-rose-700 font-bold">{isLoggedIn ?user.name: "Login"}</h3>
+            <h3 className="text-rose-700 font-bold">{isLoggedIn ?user?.name: "Login"}</h3>
             </li>
             <li className="px-2">
               {isLoggedIn ? (

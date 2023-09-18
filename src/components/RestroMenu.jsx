@@ -30,7 +30,6 @@ const RestroMenu = () => {
         card?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log("parent renderig");
   return (
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl text-rose-700">{name}</h1>
