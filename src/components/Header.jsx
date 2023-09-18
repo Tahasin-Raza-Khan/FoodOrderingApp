@@ -1,5 +1,5 @@
 //Title
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import logo from "../images/food_villa.jpg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
@@ -10,7 +10,7 @@ import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import userContext from "../utils/store/context/usercontext";
-import Badge from '@mui/material/Badge';
+import Badge from "@mui/material/Badge";
 import { useSelector } from "react-redux";
 
 export const Title = () => (
@@ -23,70 +23,72 @@ export const Title = () => (
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const {user}= useContext(userContext);
+  const { user } = useContext(userContext);
 
-  const itemAdded = useSelector((store)=>store.cart.items)
+  const itemAdded = useSelector((store) => store.cart.items);
+  console.log(itemAdded);
   return (
     <>
       <div className="flex justify-between bg-rose-50 shadow-md">
         <Title />
-          <ul className="flex py-11">
-            <li className="px-2">
-              <Tooltip title="Home" arrow>
-                <Link className="header-button" to="/">
-                  <HomeIcon />
-                </Link>
-              </Tooltip>
-            </li>
-            <li className="px-2">
-              <Tooltip title="About Us" arrow>
-                <Link className="header-button" to="/about">
-                  <InfoIcon />
-                </Link>
-              </Tooltip>
-            </li>
-            <li className="px-2">
-              <Tooltip title="Contact Us" arrow>
-                <Link className="header-button" to="/contact">
-                  <ContactMailIcon />
-                </Link>
-              </Tooltip>
-            </li>
-            <li className="px-2">
-              <Tooltip title="Add to Cart" arrow>
-                <Link className="header-button" to="/cart">
-                  <Badge badgeContent={itemAdded.length} color="success">
+        <ul className="flex py-11">
+          <li className="px-2">
+            <Tooltip title="Home" arrow>
+              <Link className="header-button" to="/">
+                <HomeIcon />
+              </Link>
+            </Tooltip>
+          </li>
+          <li className="px-2">
+            <Tooltip title="About Us" arrow>
+              <Link className="header-button" to="/about">
+                <InfoIcon />
+              </Link>
+            </Tooltip>
+          </li>
+          <li className="px-2">
+            <Tooltip title="Contact Us" arrow>
+              <Link className="header-button" to="/contact">
+                <ContactMailIcon />
+              </Link>
+            </Tooltip>
+          </li>
+          <li className="px-2">
+            <Tooltip title="Add to Cart" arrow>
+              <Link className="header-button" to="/cart">
+                <Badge badgeContent={itemAdded.length} color="success" showZero>
                   <ShoppingCartIcon />
-                  </Badge>
-                </Link>
+                </Badge>
+              </Link>
+            </Tooltip>
+          </li>
+          <li className="px-2">
+            <h3 className="text-rose-700 font-bold">
+              {isLoggedIn ? user?.name : "Login"}
+            </h3>
+          </li>
+          <li className="px-2">
+            {isLoggedIn ? (
+              <Tooltip title="Profile" arrow>
+                <AccountCircleSharpIcon
+                  onClick={() => {
+                    setIsLoggedIn(false);
+                  }}
+                />
               </Tooltip>
-            </li>
-            <li className="px-2">
-            <h3 className="text-rose-700 font-bold">{isLoggedIn ?user?.name: "Login"}</h3>
-            </li>
-            <li className="px-2">
-              {isLoggedIn ? (
-                <Tooltip title="Profile" arrow>
-                  <AccountCircleSharpIcon
+            ) : (
+              <Tooltip title="Login" arrow>
+                <div>
+                  <LogoutIcon
                     onClick={() => {
-                      setIsLoggedIn(false);
+                      setIsLoggedIn(true);
                     }}
                   />
-                </Tooltip>
-              ) : (
-                <Tooltip title="Login" arrow>
-                  <div>
-                    <LogoutIcon
-                      onClick={() => {
-                        setIsLoggedIn(true);
-                      }}
-                    />
-                  </div>
-                </Tooltip>
-              )}
-            </li>
-          </ul>
-        
+                </div>
+              </Tooltip>
+            )}
+          </li>
+        </ul>
       </div>
     </>
   );

@@ -15,6 +15,7 @@ import Shimmer from "./components/Shimmer";
 import userContext from "./utils/store/context/usercontext";
 import {Provider} from "react-redux"
 import store from "../src/utils/store/context/store"
+import appStore from "./utils/store/appstore/store";
 
 const About = React.lazy(() => import("./components/About"));
 
@@ -28,7 +29,7 @@ useEffect(()=>{
   setUserInfo(userData);
 },[])
   return (
-    <Provider store={store}>
+    <Provider store={appStore}>
       <userContext.Provider
         value={{user:userInfo}}
       >

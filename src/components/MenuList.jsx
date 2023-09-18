@@ -1,7 +1,13 @@
 import vegLogo from "../images/veg-icon.png";
 import nonVegLogo from "../images/non-veg-icon.png";
 import { restroImageLink } from "../utils/config";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/slice/cartSlice";
 const MenuList = ({ menuData }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {menuData?.map((item) => (
@@ -36,7 +42,10 @@ const MenuList = ({ menuData }) => {
           </div>
           <div className="w-2/12  p-2">
             <div className="absolute font-semibold">
-              <button className="w-16 mx-4 my-20 bg-white shadow-lg text-[#60b246] text-sm leading-7 ">
+              <button
+                className="w-16 mx-4 my-20 bg-white shadow-lg text-[#60b246] text-sm leading-7 "
+                onClick={() => handleAddItem(item)}
+              >
                 ADD+
               </button>
             </div>

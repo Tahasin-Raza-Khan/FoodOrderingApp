@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
-import FoodItems from "./FoodItems";
+import MenuList  from './MenuList'
 const Cart=()=>{
 
   const cartItems =useSelector((store)=>store.cart.items);
+  console.log("cartItemsDetails",cartItems);
     return (
-      <div className="flex">
-        <h1 className="font-bold text-3xl">Cart Items- {cartItems.length}</h1>
-        {
-          cartItems?.map((item)=>(
-            <FoodItems {...item} key={item.id}/>
-          ))
-        }
+      <div className="text-center m-4 p-4 ">
+
+        <h1 className="text-2xl font-bold">Item Added</h1>
+        <div className="w-6/12 m-auto shadow-2xl px-2 py-2">
+         <MenuList menuData={cartItems}/>
+        </div>
+
       </div>
     )
 
