@@ -8,12 +8,15 @@ const cartSlice = createSlice({
         addItem:(state,action)=>{
             state.items.push(action.payload);
         },
-        removeItem:(state)=>{
-            state.items.pop();
+        removeItem:(state,action)=>{
+            // state.items.pop();
+            console.log(action.payload);
+            state.items = state.items.filter((item) => item.card.info.id !== action.payload);
         },
         clearAll:(state)=>{
             state.items.length=0;
-        }
+        },
+        
      }
 
 })

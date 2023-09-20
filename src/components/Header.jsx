@@ -29,7 +29,7 @@ export const Header = () => {
   console.log(itemAdded);
   return (
     <>
-      <div className="flex justify-between bg-rose-50 shadow-md">
+      <div className="flex justify-between bg-rose-50 shadow-md ">
         <Title />
         <ul className="flex py-11">
           <li className="px-2">

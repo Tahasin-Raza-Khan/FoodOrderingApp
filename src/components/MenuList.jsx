@@ -2,7 +2,7 @@ import vegLogo from "../images/veg-icon.png";
 import nonVegLogo from "../images/non-veg-icon.png";
 import { restroImageLink } from "../utils/config";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/slice/cartSlice";
+import { addItem } from "../utils/store/slice/cartSlice";
 const MenuList = ({ menuData }) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
