@@ -64,6 +64,7 @@ const Body = () => {
                 key={restroinfo?.info?.id}
                 style={{ textDecoration: "none", color: "#000" }}
               >
+                {console.log(restroinfo.info)}
                 <RestroCard {...restroinfo.info} />
               </Link>
             );

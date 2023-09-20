@@ -57,7 +57,9 @@ export const Header = () => {
             <Tooltip title="Add to Cart" arrow>
               <Link className="header-button" to="/cart">
                 <Badge badgeContent={itemAdded.length} color="success" showZero>
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon 
+                  data-testid="cartIcon"
+                  />
                 </Badge>
               </Link>
             </Tooltip>
@@ -74,6 +76,7 @@ export const Header = () => {
                   onClick={() => {
                     setIsLoggedIn(false);
                   }}
+                  data-testid="account-circle-icon"
                 />
               </Tooltip>
             ) : (
@@ -83,6 +86,7 @@ export const Header = () => {
                     onClick={() => {
                       setIsLoggedIn(true);
                     }}
+                    data-testid="logOutIcon"
                   />
                 </div>
               </Tooltip>
