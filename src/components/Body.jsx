@@ -42,6 +42,7 @@ const Body = () => {
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
+          data-testid='searchInput'
         />
         <button
           type="button"
@@ -53,7 +54,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap bg-[#016A70]">
+      <div  className="flex flex-wrap bg-[#016A70]">
         {!restroLists?.length && searchText ? (
           <h1 style={{ color: "red" }}>No result found</h1>
         ) : (
@@ -64,7 +65,6 @@ const Body = () => {
                 key={restroinfo?.info?.id}
                 style={{ textDecoration: "none", color: "#000" }}
               >
-                {console.log(restroinfo.info)}
                 <RestroCard {...restroinfo.info} />
               </Link>
             );

@@ -9,24 +9,26 @@ describe("Test Cases for Header Component", () => {
   it("Should render with the Profile icon", () => {
     render(
       <BrowserRouter>
-      <Provider store={appStore}>
-      <Header/>
-      </Provider>
+        <Provider store={appStore}>
+          <Header />
+        </Provider>
       </BrowserRouter>
     );
-    const profileAvatar= screen.getByTestId('account-circle-icon');
+    const profileAvatar = screen.getByTestId("account-circle-icon");
     fireEvent.click(profileAvatar);
-    const logOutIcon = screen.getByTestId('logOutIcon');
+    const logOutIcon = screen.getByTestId("logOutIcon");
     expect(logOutIcon).toBeInTheDocument();
   });
 
-  it("should render the cart componet",()=>{
-    render( <BrowserRouter>
+  it("should render the cart componet", () => {
+    render(
+      <BrowserRouter>
         <Provider store={appStore}>
-        <Header/>
+          <Header />
         </Provider>
-        </BrowserRouter>); 
-    const isCartLoaded= screen.getByTestId('cartIcon');
+      </BrowserRouter>
+    );
+    const isCartLoaded = screen.getByTestId("cartIcon");
     expect(isCartLoaded).toBeInTheDocument();
-  })
+  });
 });

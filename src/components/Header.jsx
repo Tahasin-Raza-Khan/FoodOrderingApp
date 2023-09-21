@@ -26,7 +26,6 @@ export const Header = () => {
   const { user } = useContext(userContext);
 
   const itemAdded = useSelector((store) => store.cart.items);
-  console.log(itemAdded);
   return (
     <>
       <div className="flex justify-between bg-rose-50 shadow-md ">
